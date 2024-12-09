@@ -8,7 +8,7 @@ const Rating = () => {
   const [selectedRatingIndex, setSelectedRatingIndex] = useState(-1)
 
   return (
-    <div className="flex-col p-4 rounded-2xl bg-gradient-to-b from-grayish-blue to-dark-blue w-[325px] h-[350px px-6">
+    <div className="flex flex-col justify-center w-[325px] h-[330px] bg-gradient-to-b from-grayish-blue to-dark-blue px-6 pt-4 rounded-2xl">
       <div className="flex items-center mt-3 mb-5">
         <div className="flex items-center justify-center rounded-full w-9 h-9 bg-dark-gray">
           <img
@@ -18,13 +18,18 @@ const Rating = () => {
           />
         </div>
       </div>
-      <p className="mb-2 text-xl font-normal text-custom-white font-overpass">
-        How did we do?
-      </p>
-      <p className="text-[13px] font-extralight text-light-gray font-overpass mb-5">
-        Please let us know how we did with your support request. All feedback is
-        appreciated to help us improve our offering!
-      </p>
+      <div className="flex items-center mb-2">
+        <p className="text-xl font-normal text-custom-white font-overpass">
+          How did we do?
+        </p>
+      </div>
+      <div className="flex items-center mb-5">
+        <p className="text-[13px] font-extralight text-light-gray font-overpass">
+          Please let us know how we did with your support request. All feedback
+          is appreciated to help us improve our offering!
+        </p>
+      </div>
+
       {/* Refactored code to eliminate the repetitive classes names and conditional logic. 
       Extracted the common classes and making conditional logic more readable */}
       <div className="flex items-center justify-between mb-6">
@@ -54,7 +59,7 @@ const Rating = () => {
           )
         })}
       </div>
-      <div className="flex items-center justify-center mb-3 cursor-pointer rounded-3xl bg-custom-orange hover:bg-custom-white">
+      <div className="flex items-center justify-center cursor-pointer rounded-3xl bg-custom-orange hover:bg-custom-white">
         <button className="w-full h-10 text-[14px] text-black font-normal  font-overpass uppercase tracking-wider">
           submit
         </button>
