@@ -18,7 +18,8 @@ const SuccessMessage = ({ onClose, selectedRating }: SuccessProps) => {
       <div className="flex justify-center mt-4">
         <div className="flex items-center justify-center px-4 rounded-full bg-dark-gray">
           <p className="text-[13px] font-extralight font-overpass text-custom-orange pt-1">
-            You selected {selectedRating} out of 5
+            You selected <span className="font-medium">{selectedRating} </span>
+            out of <span className="font-medium">5</span>
           </p>
         </div>
       </div>
