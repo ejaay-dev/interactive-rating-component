@@ -1,11 +1,24 @@
 import { useState } from "react"
 
-const Rating = () => {
+interface RatingProps {
+  ratings: number[]
+  onSelectRating: (rating: number) => void
+  onSubmitRating: () => void
+}
+
+const Rating = ({ ratings, onSelectRating, onSubmitRating }: RatingProps) => {
   // Array for the rating values
-  const ratings = [1, 2, 3, 4, 5]
 
   // useState hook was used for the selected rating index
   const [selectedRatingIndex, setSelectedRatingIndex] = useState(-1)
+
+  // Condition to check if there is a rating selected to enable the submit button
+  const isClickable = selectedRatingIndex !== -1
+
+  // Set the button background color and status based on selection
+  const btnStatus = isClickable
+    ? "bg-custom-orange hover:bg-custom-white text-black cursor-pointer"
+    : "bg-gray-400 cursor-not-allowed text-gray-700"
 
   return (
     <div className="flex flex-col justify-center w-[325px] h-[330px] bg-gradient-to-b from-grayish-blue to-dark-blue px-6 pt-4 rounded-2xl">
@@ -32,7 +45,7 @@ const Rating = () => {
 
       {/* Refactored code to eliminate the repetitive classes names and conditional logic. 
       Extracted the common classes and making conditional logic more readable */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-5">
         {ratings.map((rating, index) => {
           // Check if this rating is selected
           const isSelected = selectedRatingIndex === index
@@ -52,15 +65,21 @@ const Rating = () => {
             <div
               className={`flex justify-center items-center w-10 h-10 rounded-full group cursor-pointer ${bgColor}`}
               key={rating}
-              onClick={() => setSelectedRatingIndex(index)}
+              onClick={() => {
+                setSelectedRatingIndex(index)
+                onSelectRating(rating)
+              }}
             >
               <p className={`text-[13px] ${textColor}`}>{rating}</p>
             </div>
           )
         })}
       </div>
-      <div className="flex items-center justify-center cursor-pointer rounded-3xl bg-custom-orange hover:bg-custom-white">
-        <button className="w-full h-10 text-[14px] text-black font-normal  font-overpass uppercase tracking-wider">
+      <div className="flex items-center justify-center">
+        <button
+          className={`${btnStatus} shadow rounded-3xl w-full h-10 text-[14px] font-normal font-overpass tracking-wider uppercase`}
+          onClick={onSubmitRating}
+        >
           submit
         </button>
       </div>

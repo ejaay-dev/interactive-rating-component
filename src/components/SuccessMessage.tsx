@@ -1,4 +1,9 @@
-const SuccessMessage = () => {
+interface SuccessProps {
+  onClose: () => void
+  selectedRating: number
+}
+
+const SuccessMessage = ({ onClose, selectedRating }: SuccessProps) => {
   return (
     <div className="flex flex-col justify-center w-[325px] h-[330px] rounded-2xl bg-gradient-to-b from-grayish-blue to-dark-blue">
       <div className="flex justify-center w-full h-[100px]">
@@ -13,7 +18,7 @@ const SuccessMessage = () => {
       <div className="flex justify-center mt-4">
         <div className="flex items-center justify-center px-4 rounded-full bg-dark-gray">
           <p className="text-[13px] font-extralight font-overpass text-custom-orange pt-1">
-            You selected 3 out of 5
+            You selected {selectedRating} out of 5
           </p>
         </div>
       </div>
@@ -34,7 +39,10 @@ const SuccessMessage = () => {
       </div>
       <div className="flex justify-center mt-6">
         <div className="flex items-center justify-center cursor-pointer rounded-3xl bg-custom-orange hover:bg-custom-white">
-          <button className="h-6 px-6 py-2 font-normal text-[13px] text-black uppercase tracking-wider font-overpass leading-none">
+          <button
+            className="h-6 px-6 py-2 font-normal text-[13px] text-black uppercase tracking-wider font-overpass leading-none"
+            onClick={onClose}
+          >
             back to main page
           </button>
         </div>
