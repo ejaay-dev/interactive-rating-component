@@ -2,7 +2,7 @@ import { useState } from "react"
 
 interface RatingProps {
   ratings: number[]
-  onSelectRating: (rating: number) => void
+  onSelectRating: (rating: number | null) => void
   onSubmitRating: () => void
 }
 

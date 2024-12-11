@@ -1,6 +1,6 @@
 interface SuccessProps {
   onClose: () => void
-  selectedRating: number
+  selectedRating: number | null
 }
 
 const SuccessMessage = ({ onClose, selectedRating }: SuccessProps) => {
@@ -15,29 +15,43 @@ const SuccessMessage = ({ onClose, selectedRating }: SuccessProps) => {
           />
         </div>
       </div>
-      <div className="flex justify-center mt-4">
-        <div className="flex items-center justify-center px-4 rounded-full bg-dark-gray">
-          <p className="text-[13px] font-extralight font-overpass text-custom-orange pt-1">
-            You selected <span className="font-medium">{selectedRating} </span>
-            out of <span className="font-medium">5</span>
-          </p>
+      {selectedRating === null ? (
+        <div className="flex justify-center mt-4 mb-[100px]">
+          <div className="flex items-center justify-center px-4 rounded-full bg-dark-gray">
+            <p className="text-[13px] font-light font-overpass text-custom-orange pt-1">
+              No rating selected
+            </p>
+          </div>
         </div>
-      </div>
-      <div className="flex justify-center mt-4">
-        <div className="flex items-center justify-center">
-          <p className="text-xl font-normal text-custom-white font-overpass">
-            Thank you!
-          </p>
+      ) : (
+        <div>
+          <div className="flex justify-center mt-4">
+            <div className="flex items-center justify-center px-4 rounded-full bg-dark-gray">
+              <p className="text-[13px] font-extralight font-overpass text-custom-orange pt-1">
+                You selected{" "}
+                <span className="font-medium">{selectedRating} </span>
+                out of <span className="font-medium">5</span>
+              </p>
+            </div>
+          </div>
+          <div className="flex justify-center mt-4">
+            <div className="flex items-center justify-center">
+              <p className="text-xl font-normal text-custom-white font-overpass">
+                Thank you!
+              </p>
+            </div>
+          </div>
+          <div className="flex justify-center mt-2">
+            <div className="flex items-center justify-center px-5">
+              <p className="text-center text-light-gray text-[13px] font-extralight font-overpass">
+                We appreciate you taking the time to give a rating. If you ever
+                need more support, don't hesitate to get in touch!
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
-      <div className="flex justify-center mt-2">
-        <div className="flex items-center justify-center px-5">
-          <p className="text-center text-light-gray text-[13px] font-extralight font-overpass">
-            We appreciate you taking the time to give a rating. If you ever need
-            more support, don't hesitate to get in touch!
-          </p>
-        </div>
-      </div>
+      )}
+
       <div className="flex justify-center mt-6">
         <div className="flex items-center justify-center cursor-pointer rounded-3xl bg-custom-orange hover:bg-custom-white">
           <button
