@@ -5,7 +5,8 @@ interface SuccessProps {
 
 const SuccessMessage = ({ onClose, selectedRating }: SuccessProps) => {
   return (
-    <div className="flex flex-col justify-center w-[325px] h-[330px] rounded-2xl bg-gradient-to-b from-grayish-blue to-dark-blue">
+    <div className="flex flex-col justify-center w-full max-w-[285px] h-[330px] sm:max-w-[295px] md:max-w-[305px] lg:max-w-[315px] rounded-2xl bg-gradient-to-b from-grayish-blue to-dark-blue">
+      {/* Icon Section */}
       <div className="flex justify-center w-full h-[100px]">
         <div className="flex items-center justify-center">
           <img
@@ -15,6 +16,8 @@ const SuccessMessage = ({ onClose, selectedRating }: SuccessProps) => {
           />
         </div>
       </div>
+
+      {/* Rating Display & Confirmation Message Section */}
       {selectedRating === null ? (
         <div className="flex justify-center mt-4 mb-[100px]">
           <div className="flex items-center justify-center px-4 rounded-full bg-dark-gray">
@@ -52,6 +55,7 @@ const SuccessMessage = ({ onClose, selectedRating }: SuccessProps) => {
         </div>
       )}
 
+      {/* Close Button Section */}
       <div className="flex justify-center mt-6">
         <div className="flex items-center justify-center cursor-pointer rounded-3xl bg-custom-orange hover:bg-custom-white">
           <button

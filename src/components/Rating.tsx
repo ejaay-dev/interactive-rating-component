@@ -21,16 +21,19 @@ const Rating = ({ ratings, onSelectRating, onSubmitRating }: RatingProps) => {
     : "bg-gray-400 cursor-not-allowed text-gray-700"
 
   return (
-    <div className="flex flex-col justify-center w-[325px] h-[330px] bg-gradient-to-b from-grayish-blue to-dark-blue px-6 pt-4 rounded-2xl">
-      <div className="flex items-center mt-3 mb-5">
+    <div className="flex flex-col justify-center w-full max-w-[285px] h-[340px] sm:max-w-[295px] md:max-w-[305px] lg:max-w-[315px] px-4 bg-gradient-to-b from-grayish-blue to-dark-blue rounded-2xl">
+      {/* Icon Section */}
+      <div className="flex items-center w-full mb-5">
         <div className="flex items-center justify-center rounded-full w-9 h-9 bg-dark-gray">
           <img
             src="/public/icon-star.svg"
             alt="star-icon"
-            className="w-[14px] h-[14px]"
+            className="w-[12px] h-[12px]"
           />
         </div>
       </div>
+
+      {/* Text Section */}
       <div className="flex items-center mb-2">
         <p className="text-xl font-normal text-custom-white font-overpass">
           How did we do?
@@ -43,6 +46,7 @@ const Rating = ({ ratings, onSelectRating, onSubmitRating }: RatingProps) => {
         </p>
       </div>
 
+      {/* Rating Section */}
       {/* Refactored code to eliminate the repetitive classes names and conditional logic. 
       Extracted the common classes and making conditional logic more readable */}
       <div className="flex items-center justify-between mb-5">
@@ -75,6 +79,8 @@ const Rating = ({ ratings, onSelectRating, onSubmitRating }: RatingProps) => {
           )
         })}
       </div>
+
+      {/* Submit Button Section */}
       <div className="flex items-center justify-center">
         <button
           className={`${btnStatus} shadow rounded-3xl w-full h-10 text-[14px] font-normal font-overpass tracking-wider uppercase`}

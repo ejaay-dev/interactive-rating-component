@@ -37,8 +37,8 @@ function App() {
 
   return (
     <>
-      <section>
-        <div className="flex flex-col items-center justify-center h-screen gap-3 bg-very-dark-blue">
+      <main className="flex items-center justify-center w-screen h-screen bg-very-dark-blue">
+        <section className="flex items-center justify-center w-full h-full">
           {showConfirmation ? (
             <SuccessMessage
               onClose={handleBackBtn}
@@ -51,8 +51,8 @@ function App() {
               onSubmitRating={handleSubmitRating}
             />
           )}
-        </div>
-      </section>
+        </section>
+      </main>
     </>
   )
 }
