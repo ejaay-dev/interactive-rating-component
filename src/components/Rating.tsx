@@ -26,7 +26,7 @@ const Rating = ({ ratings, onSelectRating, onSubmitRating }: RatingProps) => {
       <div className="flex items-center w-full mb-5">
         <div className="flex items-center justify-center rounded-full w-9 h-9 bg-dark-gray">
           <img
-            src="/public/icon-star.svg"
+            src="/icon-star.svg"
             alt="star-icon"
             className="w-[12px] h-[12px]"
           />

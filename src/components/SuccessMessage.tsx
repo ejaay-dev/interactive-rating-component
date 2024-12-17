@@ -10,7 +10,7 @@ const SuccessMessage = ({ onClose, selectedRating }: SuccessProps) => {
       <div className="flex justify-center w-full h-[100px]">
         <div className="flex items-center justify-center">
           <img
-            src="/public/illustration-thank-you.svg"
+            src="/illustration-thank-you.svg"
             alt="thank-you-icon"
             className="h-20"
           />
